@@ -56,15 +56,13 @@ Flyway creates the `products` table and seeds the starter catalog when the appli
 
 ## Deploy to Render
 
-The repository includes a multi-stage `Dockerfile` and `render.yaml`. Creating a Render Blueprint from this repository provisions:
+The repository includes a multi-stage `Dockerfile` and `render.yaml`. Creating a
+Render Blueprint deploys a Docker web service named `beauty-mart-api`.
 
-- A Docker web service named `beauty-mart-api`.
-- A PostgreSQL database named `beauty-mart-db`.
-- Database credentials linked to the web service without committing secrets.
-
-Render prompts for `GOOGLE_CLIENT_ID`, `FRONTEND_URL`, and the Mailgun variables marked `sync: false`. The Docker startup command converts Render's `postgresql://` connection string to the JDBC format expected by Spring Boot.
-
-The free Render PostgreSQL plan expires after 30 days and should be upgraded or replaced with a durable database before long-term production use.
+The Blueprint prompts for the Supabase Session pooler JDBC URL, database
+username and password, Google client ID, frontend URL, and Mailgun settings.
+Use port `5432` with `sslmode=require`; the transaction pooler on port `6543`
+is not suitable for Hibernate's prepared statements.
 
 ## Deploy the frontend to Vercel
 
