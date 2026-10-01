@@ -1,6 +1,6 @@
-# Beauty Mart Backend
+# Beauty Mart
 
-Spring Boot REST API for the Beauty Mart cosmetics store.
+Full-stack cosmetics store with a Spring Boot API at the repository root and a Next.js storefront in `frontend/`.
 
 ## Requirements
 
@@ -65,3 +65,7 @@ The repository includes a multi-stage `Dockerfile` and `render.yaml`. Creating a
 Render prompts for `GOOGLE_CLIENT_ID`, `FRONTEND_URL`, and the Mailgun variables marked `sync: false`. The Docker startup command converts Render's `postgresql://` connection string to the JDBC format expected by Spring Boot.
 
 The free Render PostgreSQL plan expires after 30 days and should be upgraded or replaced with a durable database before long-term production use.
+
+## Deploy the frontend to Vercel
+
+Import this same repository into Vercel and set the project's Root Directory to `frontend`. Configure the two variables documented in `frontend/.env.example`, using the deployed Render API URL for `NEXT_PUBLIC_API_URL`.
