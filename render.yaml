@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: beauty-mart-api
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
+    autoDeployTrigger: commit
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: beauty-mart-db
+          property: connectionString
+      - key: DATABASE_USERNAME
+        fromDatabase:
+          name: beauty-mart-db
+          property: user
+      - key: DATABASE_PASSWORD
+        fromDatabase:
+          name: beauty-mart-db
+          property: password
+      - key: DATABASE_POOL_SIZE
+        value: "5"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRATION
+        value: PT12H
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: MAILGUN_API_KEY
+        sync: false
+      - key: MAILGUN_DOMAIN
+        sync: false
+      - key: MAILGUN_FROM
+        sync: false
+      - key: MAILGUN_ADMIN_EMAIL
+        sync: false
+      - key: MAILGUN_BASE_URL
+        value: https://api.mailgun.net
+
+databases:
+  - name: beauty-mart-db
+    plan: free
+    region: frankfurt
+    databaseName: beauty_mart
+    user: beauty_mart
+    postgresMajorVersion: "17"

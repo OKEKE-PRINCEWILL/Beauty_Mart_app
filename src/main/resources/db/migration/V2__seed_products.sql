@@ -1,0 +1,14 @@
+INSERT INTO products (name, brand, description, price, image_url, category, stock)
+VALUES
+    ('Hydrating Face Cleanser', 'Beauty Mart', 'A gentle daily cleanser that leaves skin feeling fresh and comfortable.', 18900.00, 'https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=1200&q=80', 'Skincare', 25),
+    ('Vitamin C Glow Serum', 'Beauty Mart', 'A lightweight brightening serum designed for a smooth, radiant finish.', 24500.00, 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=1200&q=80', 'Skincare', 18),
+    ('Daily Dew Moisturizer', 'Beauty Mart', 'An everyday moisturizer that provides lasting hydration without heaviness.', 22000.00, 'https://images.unsplash.com/photo-1608248597279-f99d160bfcbc?auto=format&fit=crop&w=1200&q=80', 'Skincare', 22),
+    ('Velvet Matte Foundation', 'Beauty Mart', 'Buildable medium coverage with a soft matte, natural-looking finish.', 28500.00, 'https://images.unsplash.com/photo-1590156206657-a74f330af8a2?auto=format&fit=crop&w=1200&q=80', 'Makeup', 16),
+    ('Satin Blush Palette', 'Beauty Mart', 'A trio of blendable blush shades for a fresh wash of colour.', 19500.00, 'https://images.unsplash.com/photo-1583241800698-e8ab01830a84?auto=format&fit=crop&w=1200&q=80', 'Makeup', 20),
+    ('Precision Liquid Liner', 'Beauty Mart', 'A quick-drying liquid eyeliner with a flexible precision tip.', 12500.00, 'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?auto=format&fit=crop&w=1200&q=80', 'Makeup', 30),
+    ('Nourishing Body Butter', 'Beauty Mart', 'A rich body cream that softens dry skin and seals in moisture.', 17500.00, 'https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=1200&q=80', 'Body Care', 24),
+    ('Radiance Body Oil', 'Beauty Mart', 'A silky body oil that adds moisture and a subtle healthy-looking glow.', 16000.00, 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1200&q=80', 'Body Care', 21),
+    ('Shea Sugar Body Scrub', 'Beauty Mart', 'A smoothing sugar scrub made for a polished, soft skin feel.', 14500.00, 'https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=1200&q=80', 'Body Care', 19),
+    ('Gloss Veil Lip Oil', 'Beauty Mart', 'A glossy lip oil that leaves lips looking luminous and feeling conditioned.', 10500.00, 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=1200&q=80', 'Lip Care', 35),
+    ('Soft Matte Lip Cream', 'Beauty Mart', 'A comfortable lip colour with a smooth soft-matte finish.', 11500.00, 'https://images.unsplash.com/photo-1582450871972-ab5ca641643d?auto=format&fit=crop&w=1200&q=80', 'Lip Care', 28),
+    ('Overnight Lip Mask', 'Beauty Mart', 'A cushiony overnight treatment that helps lips feel soft by morning.', 9800.00, 'https://images.unsplash.com/photo-1599305090598-fe179d501227?auto=format&fit=crop&w=1200&q=80', 'Lip Care', 32);

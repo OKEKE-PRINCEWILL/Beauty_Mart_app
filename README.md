@@ -1,0 +1,67 @@
+# Beauty Mart Backend
+
+Spring Boot REST API for the Beauty Mart cosmetics store.
+
+## Requirements
+
+- Java 21 or newer
+- A PostgreSQL database
+
+Maven does not need to be installed globally. The repository includes the Maven Wrapper.
+
+## Local configuration
+
+Copy `.env.example` to `.env`, then replace the placeholder values with your PostgreSQL connection details. The `.env` file is ignored by Git.
+
+## Run
+
+```powershell
+.\mvnw.cmd spring-boot:run
+```
+
+The API runs on `http://localhost:8080` by default.
+
+The application reads Render's injected `PORT` environment variable automatically. The database variables in `.env.example` should be added to the Render web service when deployment begins.
+
+## Test
+
+```powershell
+.\mvnw.cmd test
+Invoke-RestMethod http://localhost:8080/api/health
+```
+
+The health endpoint returns:
+
+```json
+{
+  "status": "ok"
+}
+```
+
+## Product API
+
+```text
+GET /api/products
+GET /api/products/{id}
+```
+
+Examples:
+
+```powershell
+Invoke-RestMethod http://localhost:8080/api/products
+Invoke-RestMethod http://localhost:8080/api/products/1
+```
+
+Flyway creates the `products` table and seeds the starter catalog when the application connects to a new database.
+
+## Deploy to Render
+
+The repository includes a multi-stage `Dockerfile` and `render.yaml`. Creating a Render Blueprint from this repository provisions:
+
+- A Docker web service named `beauty-mart-api`.
+- A PostgreSQL database named `beauty-mart-db`.
+- Database credentials linked to the web service without committing secrets.
+
+Render prompts for `GOOGLE_CLIENT_ID`, `FRONTEND_URL`, and the Mailgun variables marked `sync: false`. The Docker startup command converts Render's `postgresql://` connection string to the JDBC format expected by Spring Boot.
+
+The free Render PostgreSQL plan expires after 30 days and should be upgraded or replaced with a durable database before long-term production use.
