@@ -6,7 +6,10 @@ export const productSchema = z.object({
   brand: z.string().min(1),
   description: z.string().min(1),
   price: z.number().nonnegative(),
-  imageUrl: z.url(),
+  imageUrl: z.union([
+    z.url(),
+    z.string().regex(/^\/images\/[a-zA-Z0-9_/-]+\.(?:webp|png|jpe?g|avif)$/),
+  ]),
   category: z.string().min(1),
   stock: z.number().int().nonnegative(),
   createdAt: z.string(),
