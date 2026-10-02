@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProductImage } from "@/components/product-image";
 import { ArrowUpRight } from "lucide-react";
 import { useProductQuickView } from "@/components/product-quick-view";
 import type { Product } from "@/lib/api/products";
@@ -24,7 +24,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <span className="absolute left-2 top-2 z-10 rounded-full bg-white/90 px-2.5 py-1 text-[0.56rem] font-semibold uppercase tracking-[0.1em] text-[#553138] backdrop-blur sm:left-3 sm:top-3">
           {product.stock > 0 ? "In stock" : "Out of stock"}
         </span>
-        <Image
+        <ProductImage
           src={product.imageUrl}
           alt={product.name}
           fill

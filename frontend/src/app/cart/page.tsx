@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { ProductImage } from "@/components/product-image";
 import Link from "next/link";
 import {
   ArrowRight,
@@ -103,7 +103,7 @@ export default function CartPage() {
               className="grid grid-cols-[6.5rem_1fr] gap-5 rounded-[1.5rem] border border-[#eadfda] bg-[#fffdfa] p-4 sm:grid-cols-[8rem_1fr_auto] sm:items-center sm:p-5"
             >
               <Link href={`/products/${item.product.id}`} className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-[#f3ebe7]">
-                <Image
+                <ProductImage
                   src={item.product.imageUrl}
                   alt={item.product.name}
                   fill

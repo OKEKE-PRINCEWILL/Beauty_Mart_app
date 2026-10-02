@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import { ProductImage } from "@/components/product-image";
 import { X } from "lucide-react";
 import { AddToCartButton } from "@/components/add-to-cart-button";
 import type { Product } from "@/lib/api/products";
@@ -71,7 +71,7 @@ export function ProductQuickViewProvider({ children }: { children: React.ReactNo
 
             <div className="px-5 pb-10 pt-6 sm:px-7">
               <div className="relative mx-auto aspect-[4/4.6] w-full max-w-[20rem] overflow-hidden rounded-[1.6rem] bg-[#f3ebe7]">
-                <Image
+                <ProductImage
                   src={product.imageUrl}
                   alt={product.name}
                   fill

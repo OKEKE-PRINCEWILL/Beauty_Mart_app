@@ -1,7 +1,7 @@
 "use client";
 
 import { type FormEvent, useState } from "react";
-import Image from "next/image";
+import { ProductImage } from "@/components/product-image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { ArrowLeft, LoaderCircle, LockKeyhole, MapPin } from "lucide-react";
@@ -241,7 +241,7 @@ export default function CheckoutPage() {
             {cart.items.map((item) => (
               <div key={item.id} className="grid grid-cols-[3.5rem_1fr_auto] items-center gap-3">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-xl bg-[#eadbd6]">
-                  <Image
+                  <ProductImage
                     src={item.product.imageUrl}
                     alt=""
                     fill

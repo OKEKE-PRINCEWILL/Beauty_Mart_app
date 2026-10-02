@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { ProductImage } from "@/components/product-image";
 import Link from "next/link";
 import { connection } from "next/server";
 import { notFound } from "next/navigation";
@@ -74,7 +74,7 @@ export default async function ProductPage({
 
       <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(19rem,0.78fr)_minmax(0,1fr)] lg:gap-14">
         <div className="relative mx-auto aspect-[4/4.6] w-full max-w-[22rem] overflow-hidden rounded-[2rem] bg-[#f3ebe7] sm:max-w-[27rem] lg:max-w-[30rem]">
-          <Image
+          <ProductImage
             src={product.imageUrl}
             alt={product.name}
             fill
