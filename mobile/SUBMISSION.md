@@ -1,7 +1,7 @@
 # Beauty Mart mobile task
 
 - Website: https://beauty-mart-app.vercel.app
-- Android APK build: https://expo.dev/accounts/swagun/projects/beauty-mart-mobile/builds/c62fc8d7-1846-4f9c-a90e-7fa5e11d61b7
+- Android APK build: https://expo.dev/accounts/swagun/projects/beauty-mart-mobile/builds/93fe910f-3bbd-4828-b73d-ca11da5392fd
 - Mobile source: the `mobile` folder in https://github.com/OKEKE-PRINCEWILL/Beauty_Mart_app
 - Shared API: https://beauty-mart-api.onrender.com
 
@@ -22,5 +22,7 @@ Record the demonstration and include the APK/build link, website link, and sourc
 
 - TypeScript and lint passed.
 - Production API health check passed and returned 24 products.
+- Relative product images now load from the storefront; a production product-image URL returned HTTP 200 with an image/webp content type.
 - Android Google OAuth registration is configured for the app package and EAS signing certificate.
+- The development APK installed on the Windows Android 16 emulator, but the startup test was inconclusive: both the app and Android's Pixel Launcher became unresponsive. This is not a successful runtime test of the final standalone APK.
 - Google sign-in and authenticated cart synchronization still require an account/device test; configuration alone does not verify these flows.

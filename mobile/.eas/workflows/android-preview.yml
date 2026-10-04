@@ -1,0 +1,35 @@
+name: Package Android preview
+
+jobs:
+  fingerprint:
+    type: fingerprint
+    environment: preview
+
+  existing_android:
+    needs: [fingerprint]
+    type: get-build
+    params:
+      platform: android
+      profile: preview
+      app_identifier: com.beautymart.app
+      fingerprint_hash: ${{ needs.fingerprint.outputs.android_fingerprint_hash }}
+
+  repack_android:
+    needs: [existing_android]
+    if: ${{ needs.existing_android.outputs.build_id }}
+    type: repack
+    environment: preview
+    params:
+      build_id: ${{ needs.existing_android.outputs.build_id }}
+      profile: preview
+      js_bundle_only: true
+      message: Android preview with storefront product images
+
+  build_android:
+    needs: [existing_android]
+    if: ${{ !needs.existing_android.outputs.build_id }}
+    type: build
+    params:
+      platform: android
+      profile: preview
+      message: Android preview with storefront product images

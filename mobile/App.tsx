@@ -16,6 +16,7 @@ import {
 } from 'react-native';
 
 const API_URL = process.env.EXPO_PUBLIC_API_URL ?? 'https://beauty-mart-api.onrender.com';
+const STOREFRONT_URL = (process.env.EXPO_PUBLIC_STOREFRONT_URL ?? 'https://beauty-mart-app.vercel.app').replace(/\/$/, '');
 const categories = ['All', 'Skincare', 'Makeup', 'Body Care', 'Lip Care'];
 type Product = {
   id: number; name: string; brand: string; description: string;
@@ -25,7 +26,7 @@ type CartItem = { id: number; product: Product; quantity: number; lineTotal: num
 type Cart = { items: CartItem[]; totalItems: number; subtotal: number };
 type User = { id: number; email: string; firstName: string; lastName: string | null; profilePictureUrl: string | null };
 const money = (amount: number) => `₦${amount.toLocaleString('en-NG')}`;
-const imageUri = (path: string) => path.startsWith('/') ? `${API_URL}${path}` : path;
+const imageUri = (path: string) => path.startsWith('/') ? `${STOREFRONT_URL}${path}` : path;
 const GOOGLE_WEB_CLIENT_ID = process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID;
 const getSavedToken = () => SecureStore.getItemAsync('beauty-mart-auth-token');
 const saveToken = (value: string) => SecureStore.setItemAsync('beauty-mart-auth-token', value);
@@ -212,7 +213,7 @@ export default function App({ screen }: { screen: Screen }) {
 
   const content = screen === 'home' ? (
     <>
-      <ImageBackground source={{ uri: 'https://beauty-mart-app.vercel.app/images/beauty-mart-hero.png' }} style={styles.homeHero} imageStyle={styles.homeHeroImage}>
+      <ImageBackground source={{ uri: imageUri('/images/beauty-mart-hero.png') }} style={styles.homeHero} imageStyle={styles.homeHeroImage}>
         <View style={styles.homeHeroShade} />
         <View style={styles.homeHeroContent}>
           <Text style={styles.homeHeroEyebrow}>YOUR EVERYDAY BEAUTY EDIT</Text>
@@ -229,7 +230,7 @@ export default function App({ screen }: { screen: Screen }) {
         <Text style={styles.eyebrow}>CURATED WITH INTENTION</Text>
         <Text style={styles.homeSectionTitle}>Make room for a ritual that feels like you.</Text>
         <Text style={styles.body}>Beauty Mart brings everyday favourites into one calm, considered space. Build a routine around what your skin needs and the moments that help you feel your best.</Text>
-        <View style={styles.storyImageFrame}><Image source={{ uri: 'https://beauty-mart-app.vercel.app/images/beauty-mart-ritual.png' }} style={styles.storyImage} resizeMode="cover" /></View>
+        <View style={styles.storyImageFrame}><Image source={{ uri: imageUri('/images/beauty-mart-ritual.png') }} style={styles.storyImage} resizeMode="cover" /></View>
         <View style={styles.promiseList}>
           {['Skincare, makeup, body, and lip essentials', 'A clean shopping experience with no clutter', 'Local delivery within Lagos'].map((item) => <Text key={item} style={styles.promiseLine}>✓  {item}</Text>)}
         </View>

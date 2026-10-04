@@ -6,6 +6,8 @@ Expo and React Native Android app connected to the existing Beauty Mart API.
 
 Build an installable APK with `npx eas-cli@latest build --platform android --profile preview`. Download it from the completed EAS build page, install it on an Android 7 or newer device, and open Beauty Mart. This build includes the app and does not require Expo Go, Metro, or a QR code.
 
+For JavaScript-only changes, run `npx eas-cli@latest workflow:run .eas/workflows/android-preview.yml --wait`. The manual workflow compares native fingerprints, repackages a compatible preview APK, and creates a full native build when no matching APK exists.
+
 ## Run the development preview
 
 1. Install the Android development APK from the EAS build page on your phone.
@@ -20,4 +22,4 @@ Google sign-in sends the Google identity token to the same `/api/auth/google` en
 
 The Google native sign-in module is not part of Expo Go. Use the standalone preview APK or a custom development build to test sign-in. EAS builds the Android app in the cloud; no Mac or Apple membership is needed.
 
-Set `EXPO_PUBLIC_API_URL` if using a different backend. Do not put private credentials in this file.
+Set `EXPO_PUBLIC_API_URL` if using a different backend. Relative product images are served by the website; set `EXPO_PUBLIC_STOREFRONT_URL` if using a different storefront. Do not put private credentials in this file.
